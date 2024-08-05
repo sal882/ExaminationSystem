@@ -1,0 +1,9 @@
+@ExaminationSystem_HostAddress = http://localhost:5068
+
+GET {{ExaminationSystem_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+# <PropertyGroup>
+#   <InvariantGlobalization>false</InvariantGlobalization>
+# </PropertyGroup>
