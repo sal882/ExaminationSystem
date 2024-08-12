@@ -1,0 +1,1 @@
+The Quiz System will be an online platform that allows instructors to create and manage quizzes for their courses. Students will be able to take quizzes, and instructors will be able to evaluate student performance.
