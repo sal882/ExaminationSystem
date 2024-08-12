@@ -11,7 +11,11 @@ namespace ExaminationSystem.Helper
          public CourseProfile()
          {
             CreateMap<CourseUpdateViewModel, CourseDTO>();
+<<<<<<< HEAD
             CreateMap<CourseUpdateViewModel, Course>().ReverseMap();
+=======
+            CreateMap<CourseUpdateViewModel, Course>();
+>>>>>>> 4fa6b345b8ec4f703bc6668f3a752dfc833aefb8
             CreateMap<CourseDTO, Course>();
             CreateMap<Course, CourseDTO>();
             CreateMap<CourseDTO, CourseViewModel>();
@@ -20,9 +24,15 @@ namespace ExaminationSystem.Helper
                 opt => opt.MapFrom(src => src.Exams.Count())
                 ).ForMember(
                 dst => dst.NumberOfStudents,
+<<<<<<< HEAD
                 opt => opt.MapFrom(src => src.StudentCourses.Count()));
             CreateMap<CourseViewModel, CourseViewModel>();
 
         }
+=======
+                opt => opt.MapFrom(src => src.StudentCourses.Count())); 
+
+         }
+>>>>>>> 4fa6b345b8ec4f703bc6668f3a752dfc833aefb8
     }
 }

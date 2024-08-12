@@ -7,12 +7,20 @@ namespace ExaminationSystem.UnitOfWork
 {
     public class UnitOfWork : IUnitOfWork
     {
+<<<<<<< HEAD
         private readonly Dictionary<Type, object> _repository;
+=======
+        private Hashtable _repository; // (key) name or type of repo /(value) generic repo
+>>>>>>> 4fa6b345b8ec4f703bc6668f3a752dfc833aefb8
         private readonly SystemContext _dbContext;
 
         public UnitOfWork(SystemContext dbContext)
         {
+<<<<<<< HEAD
             _repository = new Dictionary<Type, object>();
+=======
+
+>>>>>>> 4fa6b345b8ec4f703bc6668f3a752dfc833aefb8
             _dbContext = dbContext;
         }
         public IGenericRepository<T> Repository<T>() where T : BaseEntity
@@ -37,6 +45,9 @@ namespace ExaminationSystem.UnitOfWork
 
         public void Dispose()
             => _dbContext.Dispose();
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4fa6b345b8ec4f703bc6668f3a752dfc833aefb8
     }
 }

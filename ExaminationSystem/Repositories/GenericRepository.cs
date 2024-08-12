@@ -1,7 +1,10 @@
 ﻿using ExaminationSystem.Data;
 using ExaminationSystem.Models;
+<<<<<<< HEAD
 using Microsoft.EntityFrameworkCore;
 using System;
+=======
+>>>>>>> 4fa6b345b8ec4f703bc6668f3a752dfc833aefb8
 using System.Linq.Expressions;
 
 namespace ExaminationSystem.Repositories
@@ -9,12 +12,18 @@ namespace ExaminationSystem.Repositories
     public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
     {
         private readonly SystemContext _context;
+<<<<<<< HEAD
         private readonly DbSet<T> _dbSet;
+=======
+>>>>>>> 4fa6b345b8ec4f703bc6668f3a752dfc833aefb8
 
         public GenericRepository(SystemContext Context)
         {
             _context = Context;
+<<<<<<< HEAD
             _dbSet = Context.Set<T>();
+=======
+>>>>>>> 4fa6b345b8ec4f703bc6668f3a752dfc833aefb8
         }
         public void Add(T entity)
         {
@@ -50,6 +59,7 @@ namespace ExaminationSystem.Repositories
         {
             _context.SaveChanges();
         }
+<<<<<<< HEAD
 
         public async Task<IEnumerable<T>> ListAllAsync()
         {
@@ -60,5 +70,7 @@ namespace ExaminationSystem.Repositories
         {
             return await _dbSet.FirstOrDefaultAsync(predicate);
         }
+=======
+>>>>>>> 4fa6b345b8ec4f703bc6668f3a752dfc833aefb8
     }
 }

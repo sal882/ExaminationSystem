@@ -13,6 +13,10 @@ namespace ExaminationSystem
         public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4fa6b345b8ec4f703bc6668f3a752dfc833aefb8
             // Add services to the container.
 
             builder.Services.AddControllers();
@@ -29,9 +33,12 @@ namespace ExaminationSystem
             builder.RegisterModule(new AutoFacModule()));
             //AutoMapper
             builder.Services.AddAutoMapper(typeof(CourseProfile));
+<<<<<<< HEAD
             builder.Services.AddAutoMapper(typeof(ExamProfile));
             builder.Services.AddAutoMapper(typeof(QuestionProfile));
             builder.Services.AddAutoMapper(typeof(ResultProfile));
+=======
+>>>>>>> 4fa6b345b8ec4f703bc6668f3a752dfc833aefb8
 
             var app = builder.Build();
             #region Apply All Pending Migrations[Update-Database] and Data Seeding

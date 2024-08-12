@@ -20,13 +20,18 @@ namespace ExaminationSystem.Controllers
             _mapper = mapper;
         }
         [HttpPost]
+<<<<<<< HEAD
         public async Task<ActionResult<CourseUpdateViewModel>> AddCourse(CourseUpdateViewModel model)
+=======
+        public async Task<ActionResult<CourseUpdateViewModel>> AddCourse(CourseDTO model)
+>>>>>>> 4fa6b345b8ec4f703bc6668f3a752dfc833aefb8
         {
             var course = await _courseService.CreateCourse(model);
             if (course is null)
                 return BadRequest();
             return course;
         }
+<<<<<<< HEAD
         [HttpPost("StudentName")]
         public async Task<ActionResult<bool>> EnrollStudent(int studentId, int courseId)
         {
@@ -37,12 +42,19 @@ namespace ExaminationSystem.Controllers
                 return Ok(EnrolledStudent);
 
         }
+=======
+>>>>>>> 4fa6b345b8ec4f703bc6668f3a752dfc833aefb8
         [HttpGet]
         public async Task<IEnumerable<CourseViewModel>> Get(int instructorID)
         {
 
             var courses = await _courseService.GetCoursesForInstructor(instructorID);
+<<<<<<< HEAD
             return _mapper.ProjectTo<CourseViewModel>(courses.AsQueryable());
+=======
+            return courses.AsQueryable()
+                .ProjectTo<CourseViewModel>(_mapper.ConfigurationProvider);
+>>>>>>> 4fa6b345b8ec4f703bc6668f3a752dfc833aefb8
         }
         [HttpPut("{id}")]
         public async Task<ActionResult<CourseUpdateViewModel>> Update(int id, CourseUpdateViewModel model )
@@ -52,10 +64,13 @@ namespace ExaminationSystem.Controllers
                 return BadRequest();
             return await result;
         }
+<<<<<<< HEAD
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
         { 
             return Ok(await _courseService.DeleteCourse(id));
         }
+=======
+>>>>>>> 4fa6b345b8ec4f703bc6668f3a752dfc833aefb8
     }
 }

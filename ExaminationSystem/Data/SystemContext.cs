@@ -25,6 +25,9 @@ namespace ExaminationSystem.Data
         DbSet<ExamQuestion> ExamQuestions { get; set; }
         DbSet<StudentCourse> StudentCourses { get; set; }
         DbSet<StudentExam> StudentExams { get; set; }
+<<<<<<< HEAD
         DbSet<StudentExamResult> StudentExamResults { get; set; }
+=======
+>>>>>>> 4fa6b345b8ec4f703bc6668f3a752dfc833aefb8
     }
 }

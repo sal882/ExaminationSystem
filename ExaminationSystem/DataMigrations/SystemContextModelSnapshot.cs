@@ -98,12 +98,15 @@ namespace ExaminationSystem.DataMigrations
                     b.Property<int>("QuestionsNumber")
                         .HasColumnType("int");
 
+<<<<<<< HEAD
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("TotalGrade")
                         .HasColumnType("int");
 
+=======
+>>>>>>> 4fa6b345b8ec4f703bc6668f3a752dfc833aefb8
                     b.Property<string>("Type")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -128,9 +131,12 @@ namespace ExaminationSystem.DataMigrations
                     b.Property<int>("ExamID")
                         .HasColumnType("int");
 
+<<<<<<< HEAD
                     b.Property<int>("Grade")
                         .HasColumnType("int");
 
+=======
+>>>>>>> 4fa6b345b8ec4f703bc6668f3a752dfc833aefb8
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -317,6 +323,7 @@ namespace ExaminationSystem.DataMigrations
                     b.Property<int>("ExamID")
                         .HasColumnType("int");
 
+<<<<<<< HEAD
                     b.Property<bool>("IsCompleted")
                         .HasColumnType("bit");
 
@@ -332,6 +339,14 @@ namespace ExaminationSystem.DataMigrations
                     b.Property<DateTime?>("SubmittedAt")
                         .HasColumnType("datetime2");
 
+=======
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("StudentID")
+                        .HasColumnType("int");
+
+>>>>>>> 4fa6b345b8ec4f703bc6668f3a752dfc833aefb8
                     b.HasKey("Id");
 
                     b.HasIndex("ExamID");
@@ -341,6 +356,7 @@ namespace ExaminationSystem.DataMigrations
                     b.ToTable("StudentExams");
                 });
 
+<<<<<<< HEAD
             modelBuilder.Entity("ExaminationSystem.Models.StudentExamResult", b =>
                 {
                     b.Property<int>("Id")
@@ -369,6 +385,8 @@ namespace ExaminationSystem.DataMigrations
                     b.ToTable("StudentExamResults");
                 });
 
+=======
+>>>>>>> 4fa6b345b8ec4f703bc6668f3a752dfc833aefb8
             modelBuilder.Entity("ExaminationSystem.Models.Choice", b =>
                 {
                     b.HasOne("ExaminationSystem.Models.Question", "Question")
