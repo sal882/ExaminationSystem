@@ -3,6 +3,7 @@ using ExaminationSystem.DTOs.QuestionDto;
 using ExaminationSystem.Models;
 using ExaminationSystem.Services.QuestionService;
 using ExaminationSystem.UnitOfWork;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -34,6 +35,7 @@ namespace ExaminationSystem.Controllers
         }
 
         [HttpPost("Create")]
+        [Authorize(Roles = "Instructor")]
         public async Task<IActionResult> CreateQuestion([FromBody]QuestionDto createQuestionDto)
         {
             if (!ModelState.IsValid)

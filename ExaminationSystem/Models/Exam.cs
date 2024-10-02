@@ -2,12 +2,11 @@
 {
     public class Exam:BaseEntity
     {
-<<<<<<< HEAD
+ 
         
         public DateTime StartDate { get; set; }
         public int TotalGrade { get; set; }
-=======
->>>>>>> 4fa6b345b8ec4f703bc6668f3a752dfc833aefb8
+
         public ExamType Type { get; set; } // Quiz-Final
         public int QuestionsNumber { get; set; }
         public int InstructorID { get; set; }

@@ -5,6 +5,10 @@ using ExaminationSystem.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using ExaminationSystem.Helper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using ExaminationSystem.Services;
 
 namespace ExaminationSystem
 {
@@ -13,10 +17,9 @@ namespace ExaminationSystem
         public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-<<<<<<< HEAD
-=======
 
->>>>>>> 4fa6b345b8ec4f703bc6668f3a752dfc833aefb8
+
+
             // Add services to the container.
 
             builder.Services.AddControllers();
@@ -33,14 +36,34 @@ namespace ExaminationSystem
             builder.RegisterModule(new AutoFacModule()));
             //AutoMapper
             builder.Services.AddAutoMapper(typeof(CourseProfile));
-<<<<<<< HEAD
+ 
             builder.Services.AddAutoMapper(typeof(ExamProfile));
             builder.Services.AddAutoMapper(typeof(QuestionProfile));
             builder.Services.AddAutoMapper(typeof(ResultProfile));
-=======
->>>>>>> 4fa6b345b8ec4f703bc6668f3a752dfc833aefb8
+
+
+            builder.Services.AddAuthentication(opts =>
+            {
+                opts.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme; //to configure which will use scheme and which will authenticate
+                opts.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(opts =>
+            {
+                opts.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = "MySecuredAPIsUser",//source( who generated the token (ex.your web App)
+                    ValidAudience = "Instructors_Student",//who will use it
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Constants.SecretKey))//string to encyrupt data [configure jwt and choose what is the secret key 
+                };
+            });
+            builder.Services.AddAuthorization();
 
             var app = builder.Build();
+            app.UseAuthentication();
+            app.UseAuthorization();
             #region Apply All Pending Migrations[Update-Database] and Data Seeding
             using var scoped = app.Services.CreateScope();
             var services = scoped.ServiceProvider;

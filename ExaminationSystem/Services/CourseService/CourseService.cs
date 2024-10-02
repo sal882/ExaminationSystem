@@ -23,11 +23,9 @@ namespace ExaminationSystem.Services.CourseService
             _courseRepository = courseRepository;
             _unitOfWork = unitOfWork;
         }
-<<<<<<< HEAD
+
         public async Task<CourseUpdateViewModel> CreateCourse(CourseUpdateViewModel course)
-=======
-        public async Task<CourseUpdateViewModel> CreateCourse(CourseDTO course)
->>>>>>> 4fa6b345b8ec4f703bc6668f3a752dfc833aefb8
+ 
         {
             var createdCourse = _mapper.Map<Course>(course);
             _courseRepository.Add(createdCourse);
@@ -57,7 +55,7 @@ namespace ExaminationSystem.Services.CourseService
             }
         }
 
-<<<<<<< HEAD
+
         public async Task<bool> EnrollStudent(int studentId, int courseId)
         {
             var studentCourseRepo = _unitOfWork.Repository<StudentCourse>();
@@ -71,28 +69,21 @@ namespace ExaminationSystem.Services.CourseService
             studentCourseRepo.Add(studentCourse);
             var result = await _unitOfWork.CompleteAsync();
             return result > 0;
-=======
-        public Task<bool> EnrollStudent(int studentId, int courseId)
-        {
-            throw new NotImplementedException();
->>>>>>> 4fa6b345b8ec4f703bc6668f3a752dfc833aefb8
         }
+
 
         public async Task<IEnumerable<CourseViewModel>> GetCoursesForInstructor(int instructorId)
         {
-<<<<<<< HEAD
+ 
             var courses = _unitOfWork.Repository<Course>()
                                    .Get(c => c.InstructorID == instructorId);
             return _mapper.Map<IEnumerable<CourseViewModel>>(courses);
-=======
-            var courses = _courseRepository.Get(c => c.InstructorID == instructorId);
-            return courses.ProjectTo<CourseViewModel>(_mapper.ConfigurationProvider).ToList();
->>>>>>> 4fa6b345b8ec4f703bc6668f3a752dfc833aefb8
+
         }
 
         public async Task<CourseUpdateViewModel> UpdateCourse(CourseUpdateViewModel course,int id)
         {
-<<<<<<< HEAD
+ 
             var courseRepo = _unitOfWork.Repository<Course>();
 
             var existingCourse = courseRepo.GetByID(id);
@@ -109,24 +100,7 @@ namespace ExaminationSystem.Services.CourseService
             if (result <= 0) return null;
 
             return course;
-=======
-            var Course = _courseRepository.GetByID(id);
-            if (Course.InstructorID != course.InstructorId) return null;
-            else
-            {
-                var Updatedcourse = _mapper.Map<Course>(course);
-                if (course != null)
-                {
-                    course.CreditHours = Updatedcourse.CreditHours;
-                    course.Name = Updatedcourse.Name;
-                    _courseRepository.Update(Course);
-                    _courseRepository.SaveChanges();
-                    var retrievedCourse = _mapper.Map<CourseUpdateViewModel>(Updatedcourse);
-                    return retrievedCourse ;
-                }
-                return null;
-            }
->>>>>>> 4fa6b345b8ec4f703bc6668f3a752dfc833aefb8
+ 
         }
     }
 }

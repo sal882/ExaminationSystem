@@ -8,6 +8,7 @@
         public string Password { get; set; }
         public DateTime BirthDate { get; set; }
         public string Gender { get; set; }
+        public Role Role { get; set; }
 
     }
 }
